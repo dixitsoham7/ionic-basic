@@ -13,9 +13,12 @@ export class HomePage {
   deleteObject = {"id": ""};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public helper: ApiCallsProvider, public toastCtrl: ToastController) {
-    this.getContactList();
   }
 
+  ionViewWillEnter(){
+    this.getContactList();
+  }
+ 
   getContactList() {
     this.helper.getContacts().then((result) => {
       this.contactList = result['response'];
